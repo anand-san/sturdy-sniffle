@@ -26,7 +26,7 @@
   "version": "1.0.0",
   "main": "dist/main.js",
   "scripts": {
-    "dev": "nodemon -L --watch 'src/**' --ext 'ts,json' --ignore 'src/**/*.spec.ts' --exec 'ts-node src/main.ts src/input.csv'",
+    "dev": "nodemon -L --watch 'src/**' --ext 'ts,json' --ignore 'src/**/*.spec.ts' --exec 'ts-node src/main.ts sample.csv'",
     "test": "jest",
     "lint": "eslint --ext .js,.ts .",
     "format": "prettier --write \"**/*.+(js|ts|json)\"",
@@ -39,7 +39,7 @@
     "src/*.ts": [
       "eslint",
       "npm run format",
-      "jest --bail --findRelatedTests"
+      "jest --bail --findRelatedTests --passWithNoTests"
     ]
   },
   "dependencies": {
