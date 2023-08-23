@@ -7,8 +7,7 @@ type RotateTableProps = {
 export const rotateTableLeft = ({ table }: RotateTableProps): number[] => {
   const totalElements = table.length
 
-  if (!possibleTable(totalElements))
-    throw new Error('rotation not possible, rows and columns are not equal')
+  if (!possibleTable(totalElements)) return []
 
   const tableSize = Math.sqrt(totalElements)
   let prevLeftElementValue = -1
