@@ -10,10 +10,6 @@ describe('rotate table left', () => {
     [
       [1, 2, 3, 4, 5, 6, 7, 8, 9],
       [2, 3, 6, 1, 5, 9, 4, 7, 8]
-    ],
-    [
-      [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
-      [2, 3, 4, 8, 1, 6, 7, 12, 5, 10, 11, 16, 9, 13, 14, 15]
     ]
   ]
 
@@ -25,16 +21,27 @@ describe('rotate table left', () => {
   it.each(possibleRotations)(
     'should rotate table outer elements anti clockwise once',
     (originalTable, rotatedTable) => {
-      expect(rotateTableLeft({ table: originalTable })).toStrictEqual(
+      expect(rotateTableLeft({ currentTable: originalTable })).toStrictEqual(
         rotatedTable
       )
     }
   )
 
+  it('should rotate inner elements too in case there are elements that can be possibly rotated', () => {
+    const originalTable = [
+      1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16
+    ]
+    const rotatedTable = [2, 3, 4, 8, 1, 7, 11, 12, 5, 6, 10, 16, 9, 13, 14, 15]
+
+    expect(rotateTableLeft({ currentTable: originalTable })).toStrictEqual(
+      rotatedTable
+    )
+  })
+
   it.each(impossibleRotations)(
     'should return an empty array when rotation is not possible',
     (originalTable, rotatedTable) => {
-      expect(rotateTableLeft({ table: originalTable })).toStrictEqual(
+      expect(rotateTableLeft({ currentTable: originalTable })).toStrictEqual(
         rotatedTable
       )
     }
