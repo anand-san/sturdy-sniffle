@@ -1,4 +1,4 @@
-import { possibleTable } from './utils'
+import { getValuesFromIndexes, possibleTable } from './utils'
 
 describe('possibleTable', () => {
   it.each([
@@ -13,4 +13,10 @@ describe('possibleTable', () => {
       expect(possibleTable(input)).toEqual(expected)
     }
   )
+})
+
+describe('getValuesFromIndexes', () => {
+  it('return correct values from array with the indexes provided', () => {
+    expect(getValuesFromIndexes([4, 3], [9, 7, 4, 3, 2, 0])).toEqual([2, 3])
+  })
 })

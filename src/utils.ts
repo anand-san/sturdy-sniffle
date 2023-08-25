@@ -15,3 +15,13 @@ export const possibleTable = (totalTableElements: number): boolean => {
   if (!areRowsAndColumnsEqual) return false
   return true
 }
+
+export const getValuesFromIndexes = (
+  tableIndexes: number[],
+  originalTable: number[]
+) => {
+  return Array.from({ length: tableIndexes.length }, (_, index) => {
+    const unmovedIndexValue = tableIndexes[index]
+    return originalTable[unmovedIndexValue]
+  })
+}

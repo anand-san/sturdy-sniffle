@@ -1,4 +1,8 @@
-import { possibleTable, createTableSequence } from './utils'
+import {
+  possibleTable,
+  createTableSequence,
+  getValuesFromIndexes
+} from './utils'
 
 type RotateTableProps = {
   currentTable: number[]
@@ -84,14 +88,4 @@ export const rotateTableLeft = ({
   } else {
     return parentTable
   }
-}
-
-const getValuesFromIndexes = (
-  tableIndexes: number[],
-  originalTable: number[]
-) => {
-  return Array.from({ length: tableIndexes.length }, (_, index) => {
-    const unmovedIndexValue = tableIndexes[index]
-    return originalTable[unmovedIndexValue]
-  })
 }
