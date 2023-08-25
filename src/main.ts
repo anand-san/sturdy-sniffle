@@ -28,7 +28,9 @@ const main = () => {
         }
         const isRotationPossible = possibleTable(originalTableObject.length)
 
-        const rotatedTable = rotateTableLeft({ table: originalTableObject })
+        const rotatedTable = rotateTableLeft({
+          currentTable: originalTableObject
+        })
 
         console.log(
           `${index}, ${JSON.stringify(rotatedTable)}, ${isRotationPossible}`
