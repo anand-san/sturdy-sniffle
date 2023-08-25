@@ -26,7 +26,9 @@
   "version": "1.0.0",
   "main": "dist/main.js",
   "scripts": {
+    "bootstrap": "npm install && npm run dev",
     "dev": "nodemon -L --watch 'src/**' --ext 'ts,json' --ignore 'src/**/*.spec.ts' --exec 'ts-node src/main.ts sample.csv'",
+    "start": "ts-node src/main.ts",
     "test": "jest",
     "lint": "eslint --ext .js,.ts .",
     "format": "prettier --write \"**/*.+(js|ts|json)\"",
