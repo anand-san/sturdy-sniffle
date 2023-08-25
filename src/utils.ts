@@ -1,6 +1,9 @@
 export const createTable = (length: number): number[] =>
   Array.from({ length }, () => Math.floor(Math.random() * length))
 
+export const createTableSequence = (length: number): number[] =>
+  Array.from({ length }, (_, index) => index)
+
 const isWholeNumber = (number: number): boolean => {
   return number % 1 === 0
 }
@@ -11,19 +14,4 @@ export const possibleTable = (totalTableElements: number): boolean => {
 
   if (!areRowsAndColumnsEqual) return false
   return true
-}
-
-export const prettyPrintTable = (table: number[]): void => {
-  const totalTableElements = table.length
-  const rowsAndColumnsLength = Math.sqrt(totalTableElements)
-
-  let string = ''
-  for (let i = 0; i <= totalTableElements; i++) {
-    if (i % rowsAndColumnsLength === 0) {
-      console.log(string)
-      string = ''
-    }
-
-    string += ` ${table[i]}`
-  }
 }
